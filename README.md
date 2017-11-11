@@ -2,9 +2,12 @@
 
 ## cases
 Every running cases located in cases/
+
 They should include .rea file and userf.m
 
+
 rea collect every input parameter we use in code
+
 userf is a user specified function f = userf(C_1,C_2)
 
  - Our code solve the following 1D equation
