@@ -11,8 +11,9 @@ clear all; close all;
 case_name   = 'ClassicalPB_1110';
 rea_name    = 'test';
 
-method      = 3; % 1, 2, 3,...  mv to rea
-mode_sc     = 'fsolve'; % method to solve C in eq1 2
+method      = 2; % 1, 2, 3,...  mv to rea
+% mode_sc     = 'fsolve'; % method to solve C in eq1 2
+mode_sc     = 'ptws_NT_couple'; % method to solve C in eq1 2
 
 % Include files and declare
 addpath([pwd '/Poisson_1DMDMG/'])
@@ -54,15 +55,13 @@ switch method
         alpha = 0.01;
 
         for i = 1:1000
-            [C1,C2,fval] = solve_c_by_phi(Phi,C1_ini,C2_ini,mode_sc);
-            C1_ini = C1; C2_ini = C2;
+            [C1,C2,fval] = solve_c_by_phi(Phi,C1,C2,mode_sc);
 
-            Phi = solve_phi_by_c(C1,C2,Phi_ini);
-            Phi = Phi*alpha + (1-alpha)*Phi_ini;
-            Phi_ini = Phi;
+            Phi_new = solve_phi_by_c(C1,C2,Phi);
+            Phi = Phi_new*alpha + (1-alpha)*Phi;
 
             figure(1)
-        %     plot(Xprolong,Phi,'k');hold on
+            % plot(Xprolong,Phi,'k');hold on
             plot(Xprolong,C1);hold on
             plot(Xprolong,C2);hold off
             title([num2str(i) 'steps, a.m. fval = ' num2str(max(abs(fval)))])
