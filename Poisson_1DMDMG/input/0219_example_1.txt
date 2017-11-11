@@ -1,0 +1,28 @@
+% Parameters in
+% Number of the test
+	2
+% =================================================== %
+% test 1
+% 	NN TotNumDM Nc
+	10 32 3  
+% xmin xmax fun_case
+	1.0	2.0 1
+% sType_vc sType_fin algo_vc 
+	1 1 1 
+% N_vcycle m_smooth sigma
+	10 4 0.66666667
+% tol maxit 
+	1e-6 6000
+% =================================================== %
+% test 2
+% 	NN TotNumDM Nc
+	10 32 3
+% xmin xmax fun_case
+	1.0	2.0 1
+% sType_vc sType_fin algo_vc 
+	1 1 1
+% N_vcycle m_smooth sigma
+	10 4 0.66666667
+% tol maxit 
+	1e-6 6000
+% =================================================== %
