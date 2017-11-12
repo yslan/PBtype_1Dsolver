@@ -8,7 +8,7 @@ clear all; close all;
 
 
 % Initialize Test Case
-case_name   = 'ClassicalPB_1110';
+case_name   = 'PB_steric_g_1112';
 rea_name    = 'test';
 
 method      = 2; % 1, 2, 3,...  mv to rea

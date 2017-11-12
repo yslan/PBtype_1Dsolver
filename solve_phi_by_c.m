@@ -5,14 +5,14 @@ global NN TotNumDM DegDM
 global Xprolong xmin xmax
 global MassVec JacVec Diff
 global k_B T e zval
-global Psi_1 Psi_2
+global c0 phi_L Psi_1 Psi_2
 
 % Boundary condition-> force to be Dirichlet 
 pen_BC.alpha_m = 1; pen_BC.beta_m = 0;  % specifies here
 pen_BC.alpha_p = 1; pen_BC.beta_p = 0;  % specifies here
 
 
-Bdry_D = [-1,0];
+Bdry_D = [phi_L,0];
 Bdry_N = [0,0];
 
 

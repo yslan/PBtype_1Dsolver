@@ -19,7 +19,7 @@ switch mode
         Jaceps = 1E-8;
         tolNT  = 1E-8;
         maxitNT= 10;
-        alphaNT= 1; % relaxation, slow down iteration preventing negative
+        alphaNT= 0.8; % relaxation, slow down iteration preventing negative
 
         NTF = @(C)res_Concen_eq(Phi,C);
 
