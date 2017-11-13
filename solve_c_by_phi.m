@@ -4,6 +4,16 @@ function [C1,C2,fval] = solve_c_by_phi(Phi,C1_ini,C2_ini,mode)
 %       fsolve
 %       ptws_NT: point wise Newton
 
+global param
+
+global TotNumDM NN xmin xmax
+global k_B T e zval
+global c0 phi_L Psi_1 Psi_2
+global tol_pot tol_c tol_res
+
+global DegDM Xprolong
+global MassVec JacVec Diff
+
 
 Nx = length(Phi);
 switch mode

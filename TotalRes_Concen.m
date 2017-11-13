@@ -1,8 +1,16 @@
 function res=TotalRes_Concen(C,Phi_ini)
 % Given C1, C2, compute total res of PDEin form of Concen 1 and 2
 
+global param
+
+global TotNumDM NN xmin xmax
 global k_B T e zval
-global Psi_1 Psi_2
+global c0 phi_L Psi_1 Psi_2
+global tol_pot tol_c tol_res
+
+global DegDM Xprolong
+global MassVec JacVec Diff
+
 C = abs(C);
 
 Nx = 1/2*length(C);

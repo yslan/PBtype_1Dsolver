@@ -8,14 +8,14 @@ clear all; close all;
 
 
 % Initialize Test Case
-case_name   = 'PB_steric_g_1112';
-rea_name    = 'test';
+case_name   = 'test1113';
+rea_name    = 'rea1113';
 
 method      = 2; % 1, 2, 3,...  mv to rea
 % mode_sc     = 'fsolve'; % method to solve C in eq1 2
 mode_sc     = 'ptws_NT_couple'; % method to solve C in eq1 2
 
-% Include files and declare
+% Include files and declare globals
 addpath([pwd '/Poisson_1DMDMG/'])
 init_folder(case_name,rea_name);
 addpath([pwd '/cases/' case_name]) % incluse param.m and usr.m
@@ -38,47 +38,17 @@ param2global; % set global param
 
 % Initials
 [DegDM,Xprolong,JacVec,MassVec,Diff] = init_SEM(xmin,xmax,NN,TotNumDM);
-
-%  initial condition
-Phi_ini = zeros(size(Xprolong));
-C1_ini = ones(size(Xprolong));
-C2_ini = ones(size(Xprolong));
-C_ini = [C1_ini;C2_ini];
-Phi = Phi_ini;
-C1 = C1_ini;
-C2 = C2_ini;
+%  initial guess
+[C1,C2,Phi] = init_guess(Xprolong);
 
 
 % Main solving part
-switch method
-    case 1 % relaxation
-        alpha = 0.01;
+[C1,C2,Phi] = main_solve(C1,C2,Phi,method,mode_sc);
 
-        for i = 1:1000
-            [C1,C2,fval] = solve_c_by_phi(Phi,C1,C2,mode_sc);
 
-            Phi_new = solve_phi_by_c(C1,C2,Phi);
-            Phi = Phi_new*alpha + (1-alpha)*Phi;
-
-            figure(1)
-            % plot(Xprolong,Phi,'k');hold on
-            plot(Xprolong,C1);hold on
-            plot(Xprolong,C2);hold off
-            title([num2str(i) 'steps, a.m. fval = ' num2str(max(abs(fval)))])
-            drawnow
-        end
-    case 2 % fsolve on Phi
-        [Phi,fval] =fsolve(@(phi)TotalRes_Poisson(phi,C1_ini,C2_ini),Phi_ini);
-        [C1,C2,fval] = solve_c_by_phi(Phi,C1_ini,C2_ini,mode_sc);
-
-    case 3 % fsolve on C
-        [C,fval] =fsolve(@(C)TotalRes_Concen(C,Phi_ini),C_ini);
-
-        Nx = length(C)/2;
-        C1 = C(1:Nx); C2 = C(Nx+1:2*Nx);
-        Phi = solve_phi_by_c(C1,C2,Phi_ini);
-end
-
+% Save and plot
+savedata(case_name,rea_name,0,Xprolong,C1,C2,Phi); % save into .csv
+% plotdata;
 
 figure(2)
 
