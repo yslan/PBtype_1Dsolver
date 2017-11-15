@@ -4,8 +4,9 @@ function savedata(cname,filename,index,X,C1,C2,Phi)
 
 Nx = length(X);
 
+sind = sprintf('%03d', index);
 if index ~=0
-    opath = ['cases/' cname '/' filename '_' num2str(index) '.csv'];
+    opath = ['cases/' cname '/' filename '_' sind '.csv'];
 else
     opath = ['cases/' cname '/' filename '.csv'];
 end
