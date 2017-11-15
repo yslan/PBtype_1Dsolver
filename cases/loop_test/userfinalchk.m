@@ -33,5 +33,5 @@ end
 V0 =  V_0(2:ND+1);
 C_D= -(Q(3:ND+2)-Q(1:ND))./(V_0(3:ND+2) - V_0(1:ND));
 
-disp(V0)
-disp(C_D)
+disp('V0, C_D')
+disp([V0',C_D'])

@@ -77,7 +77,8 @@ end
 tal = toc;
 
 
-if (ifsol); [V0,C_D] = userfinalchk(Q,loop,linfo); end;
+if (ifsol); [V0,C_D] = userfinalchk(Q,loop,linfo); plot(V0,C_D);end
+
 %userchk;
 %userplot;
 %savedata; % save V0, Q, C_D
@@ -95,7 +96,7 @@ disp(['  Time: (total/average): ' sp10 sp10 num2str(tal-tbl) ' / ' num2str((tal-
 disp('=================================================================================')
 disp(['                                                            Total time:' num2str(tfinal)])
 disp('Delete dependnecy, program should exit any time...')
-
+ 
 % Remove path, allocation
 rmpath([pwd '/Poisson_1DMDMG/'])
 rmpath([pwd '/cases/' case_name])
