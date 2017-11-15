@@ -1,4 +1,4 @@
-clear all; close all;clc;
+clear all; close all;clc;format shorte;
 % This script is designed to run something outside the main.m
 % Ex: loop of main with different parameter (differential capacitance)
 
@@ -77,7 +77,7 @@ end
 tal = toc;
 
 
-if (ifsol); [V0,C_D] = userfinalchk(Q,loop,linfo); plot(V0,C_D);end
+if (ifsol); [V0,C_D] = userfinalchk(Q,loop,linfo);end
 
 %userchk;
 %userplot;
