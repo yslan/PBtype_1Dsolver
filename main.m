@@ -23,7 +23,7 @@ addpath([pwd '/cases/' case_name]) % incluse param.m and usr.m
 global param
 
 global TotNumDM NN xmin xmax
-global k_B T e zval
+global k_B T e zval epsilon
 global c0 phi_L Psi_1 Psi_2
 global tol_pot tol_c tol_res
 
@@ -48,6 +48,10 @@ param2global; % set global param
 
 % Save and plot
 savedata(case_name,rea_name,0,Xprolong,C1,C2,Phi); % save into .csv
+Q    = compute_Q(C1,C2,0);
+Q_ex = compute_Q(C1,C2,1);
+
+[l2,linf] = userchk(Q,Q_ex);
 % plotdata;
 
 figure(2)

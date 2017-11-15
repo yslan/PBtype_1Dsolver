@@ -19,7 +19,7 @@ addpath([pwd '/cases/' case_name]) % incluse param.m and usr.m
 global param
 
 global TotNumDM NN xmin xmax
-global k_B T e zval
+global k_B T e zval epsilon
 global c0 phi_L Psi_1 Psi_2
 global tol_pot tol_c tol_res
 
@@ -56,7 +56,7 @@ for il = 1:linfo.Nloop
     % savedata
     savedata(case_name,loop(il).name,il,Xprolong,C1,C2,Phi);
     % plotdata;
-    % userchk;
+    [l2,linf] = userchk(C1,C2,Phi);
 end
 
 

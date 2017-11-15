@@ -4,7 +4,7 @@ function [C1,C2,Phi] = main_solve(C1_ini,C2_ini,Phi_ini,varargin)
 global param
 
 global TotNumDM NN xmin xmax
-global k_B T e zval
+global k_B T e zval epsilon
 global c0 phi_L Psi_1 Psi_2
 global tol_pot tol_c tol_res
 

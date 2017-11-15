@@ -4,7 +4,7 @@ function res = TotalRes_Poisson(Phi,C1_ini,C2_ini)
 global param
 
 global TotNumDM NN xmin xmax
-global k_B T e zval
+global k_B T e zval epsilon
 global c0 phi_L Psi_1 Psi_2
 global tol_pot tol_c tol_res
 
@@ -27,7 +27,7 @@ vec_one = ones(size(Xprolong));
 % construct ML's
     [~,DegDM,BlockL,SupMat,SubMat,Fprolong] =...
                 get_L_Fvec(xmin,xmax,NN,TotNumDM,pen_BC,Bdry_D,Bdry_N,...
-                           vec_one,0*vec_one);
+                           epsilon*vec_one,0*vec_one);
 
 
 wk_rhs = MassVec .* (zval(1)*C1 + zval(2)*C2);
