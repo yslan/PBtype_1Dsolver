@@ -1,4 +1,4 @@
-clear all; close all;
+clear all; close all;clc;
 % This script is designed to run something outside the main.m
 % Ex: loop of main with different parameter (differential capacitance)
 
@@ -29,19 +29,25 @@ global MassVec JacVec Diff
 global ifsol
 
 % Input parameters
+tic
 read_rea(case_name,rea_name); % read param
 param2global; % set global param
 [loop,linfo] = read_loop(case_name,loop_name); % read loop
-
+t0 = toc;
+disp('Read input...done!!')
 
 % Initials
 [DegDM,Xprolong,JacVec,MassVec,Diff] = init_SEM(xmin,xmax,NN,TotNumDM);
 %  initial condition
 [C1,C2,Phi] = init_guess(Xprolong);
+t1 = toc;
+disp('Initialization ...done!!')
 
 
+tbl = toc;
 % Loop
 for il = 1:linfo.Nloop
+    tl0 = toc;
     % Display info
     disp(['Loop: il = ' num2str(il) '/' num2str(linfo.Nloop)])
 
@@ -51,17 +57,24 @@ for il = 1:linfo.Nloop
     % Initial Guess
     %    the solution of "il-1"
 
+
     % Main solve
     [C1,C2,Phi] = main_solve(C1,C2,Phi,method,mode_sc);
+    tl1 = toc;
+    disp(['    Loop: il = ' num2str(il) ' is solved, cost ' num2str(tl1-tl0) 'sec'])
+
 
     % savedata
+
     savedata(case_name,loop(il).name,il,Xprolong,C1,C2,Phi);
     if (ifsol); userchk(C1,C2,Phi); end;
+    disp('    date saved.')
 
     % plotdata;
 %    [l2,linf] = userchk(C1,C2,Phi);
+    tl2 = toc;
 end
-
+tal = toc;
 
 
 %userchk;
@@ -69,6 +82,18 @@ end
 %savedata; % save V0, Q, C_D
 %plotdata;
 
+tfinal = toc;
+sp10 = '          '
+disp('=================================================================================')
+disp(['Case:         ' case_name])
+disp(['rea:          ' rea_name])
+disp(['Loop:         ' loop_name])
+disp(['  info:'])
+disp(linfo)
+disp(['  Time: (total/average): ' sp10 sp10 num2str(tal-tbl) ' / ' num2str((tal-tbl)/linfo.Nloop)])
+disp('=================================================================================')
+disp(['                                                            Total time:' num2str(tfinal)])
+disp('Delete dependnecy, program should exit any time...')
 
 % Remove path, allocation
 rmpath([pwd '/Poisson_1DMDMG/'])

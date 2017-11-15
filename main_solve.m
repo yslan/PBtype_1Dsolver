@@ -17,6 +17,9 @@ if nargin == 5
    mode_sc = varargin{2};
 end
 
+
+options = optimoptions('fsolve','Display','none');
+
 switch method
     case 1 % relaxation
         alpha = 0.01;
@@ -35,11 +38,11 @@ switch method
             drawnow
         end
     case 2 % fsolve on Phi
-        [Phi,fval] =fsolve(@(phi)TotalRes_Poisson(phi,C1_ini,C2_ini),Phi_ini);
+        [Phi,fval] =fsolve(@(phi)TotalRes_Poisson(phi,C1_ini,C2_ini),Phi_ini,options);
         [C1,C2,fval] = solve_c_by_phi(Phi,C1_ini,C2_ini,mode_sc);
 
     case 3 % fsolve on C
-        [C,fval] =fsolve(@(C)TotalRes_Concen(C,Phi_ini),[C1_ini;C2_ini]);
+        [C,fval] =fsolve(@(C)TotalRes_Concen(C,Phi_ini),[C1_ini;C2_ini],options);
 
         Nx = length(C)/2;
         C1 = C(1:Nx); C2 = C(Nx+1:2*Nx);
