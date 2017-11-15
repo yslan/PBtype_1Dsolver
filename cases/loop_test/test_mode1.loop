@@ -1,0 +1,25 @@
+21 % number of loops
+1  % number of changing variables in loop
+0  % mode: 0 = param, 1 = eval('var_name'), 2 = handle
+% index, case_name, var_i, value_i ...
+1,   phi_m1,     17,  -1.0
+2,   phi_m0p9,   17,  -0.9 
+3,   phi_m0p8,   17,  -0.8 
+4,   phi_m0p7,   17,  -0.7
+5,   phi_m0p6,   17,  -0.6
+6,   phi_m0p5,   17,  -0.5
+7,   phi_m0p4,   17,  -0.4
+8,   phi_m0p3,   17,  -0.3
+9,   phi_m0p2,   17,  -0.2
+10,  phi_m0p1,   17,  -0.1
+11,  phi_0,      17,   0.0
+12,  phi_0p1,    17,   0.1
+13,  phi_0p2,    17,   0.2
+14,  phi_0p3,    17,   0.3
+15,  phi_0p4,    17,   0.4
+16,  phi_0p5,    17,   0.5
+17,  phi_0p6,    17,   0.6
+18,  phi_0p7,    17,   0.7
+19,  phi_0p8,    17,   0.8
+20,  phi_0p9,    17,   0.9
+21,  phi_1,      17,   1.0

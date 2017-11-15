@@ -50,6 +50,22 @@ switch lmode
             loop(ind).var_name = vname;
             loop(ind).var_value= vvalue;
         end
+    case 2
+        tline = fgets(fid);
+
+        tline = fgets(fid);
+        tlines= strsplit(tline,',');
+        ind   = sscanf(tlines{1},'%d',[1,1]);
+        str   = sscanf(tlines{2},' %s ');
+        for il = 1:Nloop
+            for iv = 1:Nvar
+                vname{iv} = sscanf(tlines{2*iv+1},' %s ');
+                veval{iv}= sscanf(tlines{2*iv+2},' %s ');
+            end
+            loop(il).name = str;
+            loop(il).var_name = vname;
+            loop(il).var_eval = veval;
+        end
 end
 
 fclose(fid);

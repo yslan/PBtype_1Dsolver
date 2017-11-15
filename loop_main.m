@@ -5,7 +5,7 @@ clear all; close all;clc;
 % Initialize Test Case    % cases/
 case_name   = 'loop_test'; %   <case_name>/
 rea_name    = 'loop';  %      <rea_name>.rea
-loop_name   = 'test';  %      <loop_name>.loop
+loop_name   = 'test_mode3';  %      <loop_name>.loop
 
 method      = 2; % 1, 2, 3,...  mv to rea
 % mode_sc     = 'fsolve'; % method to solve C in eq1 2
