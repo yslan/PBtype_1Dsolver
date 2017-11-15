@@ -30,6 +30,7 @@ global tol_pot tol_c tol_res
 global DegDM Xprolong 
 global MassVec JacVec Diff
 
+global ifsol
 
 % Input parameters
 read_rea(case_name,rea_name); % read param
@@ -48,8 +49,7 @@ param2global; % set global param
 
 % Save and plot
 savedata(case_name,rea_name,0,Xprolong,C1,C2,Phi); % save into .csv
-Q    = compute_Q(C1,C2,0)
-Q_ex = compute_Q(C1,C2,1)
+if (ifsol); userchk(C1,C2,Phi); end;
 
 % [l2,linf] = userchk(Q,Q_ex);
 % plotdata;

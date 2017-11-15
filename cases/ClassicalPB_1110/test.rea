@@ -21,7 +21,7 @@
 1E-10 % 19: tol_c
 1E-10 % 20: tol_res
 1E4   % 21: maxit
-0     % 22: empty
+1     % 22: ifsol: 0/1
 0     % 23: empty
 0     % 24: empty
 0     % 25: empty

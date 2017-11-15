@@ -26,6 +26,7 @@ global tol_pot tol_c tol_res
 global DegDM Xprolong
 global MassVec JacVec Diff
 
+global ifsol
 
 % Input parameters
 read_rea(case_name,rea_name); % read param
@@ -55,8 +56,10 @@ for il = 1:linfo.Nloop
 
     % savedata
     savedata(case_name,loop(il).name,il,Xprolong,C1,C2,Phi);
+    if (ifsol); userchk(C1,C2,Phi); end;
+
     % plotdata;
-    [l2,linf] = userchk(C1,C2,Phi);
+%    [l2,linf] = userchk(C1,C2,Phi);
 end
 
 

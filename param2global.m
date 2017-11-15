@@ -6,6 +6,8 @@ global k_B T e zval epsilon
 global c0 phi_L Psi_1 Psi_2
 global tol_pot tol_c tol_res
 
+global ifsol
+
 TotNumDM    = param(4);
 NN          = param(5);
 
@@ -30,6 +32,8 @@ phi_L       = param(17);
 tol_pot     = param(18);
 tol_c       = param(19);
 tol_res     = param(20);
+
+ifsol       = param(22);
 
 Psi_1 = 0; Psi_2 = 0;
 res = -res_Concen_eq(0,[c0;c0]);
