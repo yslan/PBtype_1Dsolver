@@ -3,10 +3,10 @@
 0     % 1: 
 0     % 2:
 0     % 3:
-5     % 4: TotNumDM
+10     % 4: TotNumDM
 20    % 5: NN
 0     % 6: xmin
-50    % 7: xmax
+100    % 7: xmax
 1     % 8: k_B
 1     % 9: T
 1     % 10: e
