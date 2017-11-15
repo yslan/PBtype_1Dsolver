@@ -1,4 +1,4 @@
-function userchk(C1,C2,Phi)
+function Q = userchk(C1,C2,Phi)
 % check whatever you want in post process
 global param
 

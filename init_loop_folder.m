@@ -27,8 +27,8 @@ else
         error('There is no userf.m, create an example and exit\n');
     elseif exist(looppath,'file') == 0 % usr.m not exist
     % create example loop
-        st31 = copyfile('cases/loop_test/loop.rea',fpath);
-        st32 = movefile([fpath '/loop.rea'],reapath);
+        st31 = copyfile('cases/loop_test/test_mode0.loop',fpath);
+        st32 = movefile([fpath '/test_mode0.loop'],reapath);
         error('There is no .loop, create an example and exit\n');
     end
 end

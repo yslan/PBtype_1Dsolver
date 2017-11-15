@@ -5,7 +5,7 @@ clear all; close all;clc;
 % Initialize Test Case    % cases/
 case_name   = 'loop_test'; %   <case_name>/
 rea_name    = 'loop';  %      <rea_name>.rea
-loop_name   = 'test_mode3';  %      <loop_name>.loop
+loop_name   = 'test_mode2';  %      <loop_name>.loop
 
 method      = 2; % 1, 2, 3,...  mv to rea
 % mode_sc     = 'fsolve'; % method to solve C in eq1 2
@@ -67,7 +67,7 @@ for il = 1:linfo.Nloop
     % savedata
 
     savedata(case_name,loop(il).name,il,Xprolong,C1,C2,Phi);
-    if (ifsol); userchk(C1,C2,Phi); end;
+    if (ifsol); Q(il) = userchk(C1,C2,Phi); end;
     disp('    date saved.')
 
     % plotdata;
@@ -77,13 +77,14 @@ end
 tal = toc;
 
 
+if (ifsol); [V0,C_D] = userfinalchk(Q,loop,linfo); end;
 %userchk;
 %userplot;
 %savedata; % save V0, Q, C_D
 %plotdata;
 
 tfinal = toc;
-sp10 = '          '
+sp10 = '          ';
 disp('=================================================================================')
 disp(['Case:         ' case_name])
 disp(['rea:          ' rea_name])

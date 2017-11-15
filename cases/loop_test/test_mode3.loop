@@ -1,5 +1,0 @@
-21 % number of loops
-1  % number of changing variables in loop
-2  % mode: 0 = param, 1 = eval('var_name'), 2 = handle
-% index, case_name, var_i, value_i ...
-1,   phi_L_m1_p1_21,     phi_L,  @(i) -0.1 + (i-1)/10
