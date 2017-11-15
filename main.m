@@ -8,8 +8,8 @@ clear all; close all;
 
 
 % Initialize Test Case
-case_name   = 'test1113';
-rea_name    = 'rea1113';
+case_name   = 'ClassicalPB_1110';
+rea_name    = 'test';
 
 method      = 2; % 1, 2, 3,...  mv to rea
 % mode_sc     = 'fsolve'; % method to solve C in eq1 2
@@ -48,10 +48,10 @@ param2global; % set global param
 
 % Save and plot
 savedata(case_name,rea_name,0,Xprolong,C1,C2,Phi); % save into .csv
-Q    = compute_Q(C1,C2,0);
-Q_ex = compute_Q(C1,C2,1);
+Q    = compute_Q(C1,C2,0)
+Q_ex = compute_Q(C1,C2,1)
 
-[l2,linf] = userchk(Q,Q_ex);
+% [l2,linf] = userchk(Q,Q_ex);
 % plotdata;
 
 figure(2)

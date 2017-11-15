@@ -17,7 +17,7 @@ zval        = [xmin;xmax];
 k_B         = param(8);
 T           = param(9);
 e           = param(10);
-epsilon     = param(11)
+epsilon     = param(11);
 
 zval(1)     = param(12);
 zval(2)     = param(13);
