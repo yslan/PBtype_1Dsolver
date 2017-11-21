@@ -1,11 +1,13 @@
 clear all; close all;clc;format shorte;
+warning('off');rmpath(genpath([pwd '/cases']));warning('on');
 % This script is designed to run something outside the main.m
 % Ex: loop of main with different parameter (differential capacitance)
 
 % Initialize Test Case    % cases/
-case_name   = 'loop_test'; %   <case_name>/
-rea_name    = 'loop';  %      <rea_name>.rea
-loop_name   = 'test_mode2';  %      <loop_name>.loop
+case_name   = 'NaF_PBbikerman_loop'; %   <case_name>/
+rea_name    = 'naf';  %      <rea_name>.rea
+% loop_name   = 'test_mode2';  %      <loop_name>.loop
+loop_name   = '0p5';  %      <loop_name>.loop
 
 method      = 2; % 1, 2, 3,...  mv to rea
 % mode_sc     = 'fsolve'; % method to solve C in eq1 2

@@ -1,4 +1,5 @@
 clear all; close all;
+warning('off');rmpath(genpath([pwd '/cases']));warning('on');
 % Solving PB-type Equation, which is steady state PNP type with 
 % no-flux boundary condition
 %  Eqs:
